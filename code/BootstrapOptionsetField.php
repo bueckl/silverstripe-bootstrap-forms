@@ -8,6 +8,10 @@
  * @author Uncle Cheese <unclecheese@leftandmain.com>
  * @package bootstrap_forms
  */
+namespace BootstrapForms;
+
+use SilverStripe\Forms\OptionsetField;
+
 class BootstrapOptionsetField extends BootstrapFormField {
 
 	/**
@@ -23,7 +27,7 @@ class BootstrapOptionsetField extends BootstrapFormField {
 	 * </code>
 	 * @var array
 	 */
-	protected $columnCounts = array ();	
+	protected $columnCounts = array ();
 
 
 	/**
@@ -50,18 +54,18 @@ class BootstrapOptionsetField extends BootstrapFormField {
 	 * Sets the column layout for the options
 	 * @param array $cols An array of column_name => span_length pairs
 	 * @see  $columnCounts
-	 * 
+	 *
 	 * @return   OptionsetField
 	 */
 	public function setColumns($cols) {
 		if(!is_array($cols)) {
-			throw new Exception("BootstrapOptionsetField::setColumns must be passed an array.");
+			throw new \Exception("BootstrapOptionsetField::setColumns must be passed an array.");
 		}
 
 		$allowed_keys = array('lg','md','sm','xs');
 		$diff = array_diff($allowed_keys, array_keys($cols));
 		if(!empty($diff)) {
-			throw new Exception("BootstrapOptionsetField::setColumns must be passed an array with keys " . implode(', ', $allowed_keys));
+			throw new \Exception("BootstrapOptionsetField::setColumns must be passed an array with keys " . implode(', ', $allowed_keys));
 		}
 
 		$this->columnCounts = $cols;
@@ -114,7 +118,7 @@ class BootstrapOptionsetField extends BootstrapFormField {
 	 *
 	 * @return  int
 	 */
-	public function PerColumn() {		
+	public function PerColumn() {
 		return ceil(count($this->owner->getSource())/$this->numberOfColumns);
 	}
 

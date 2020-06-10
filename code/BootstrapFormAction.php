@@ -7,10 +7,14 @@
  * @author Uncle Cheese <unclecheese@leftandmain.com>
  * @package bootstrap_forms
  */
+namespace BootstrapForms;
+
+use SilverStripe\ORM\DataExtension;
+
 class BootstrapFormAction extends DataExtension {
 
 
-	/** 
+	/**
 	 * Sets the style of button. Options include:
 	 * 	- "success"
 	 *  - "danger"
@@ -29,7 +33,7 @@ class BootstrapFormAction extends DataExtension {
 
 
 
-	/** 
+	/**
 	 * Sets the size of the button. Options include:
 	 * 	- "large"
 	 *  - "small"

@@ -1,13 +1,17 @@
 <?php
 
+namespace BootstrapForms;
+
+use SilverStripe\Control\HTTPResponse;
+
 class BootstrapAjaxForm extends BootstrapForm {
 
-	
+
 	/**
 	 * Taking care of that AJAX responses are handled accoring to the specs:
 	 * a json object with "valid, msg, html"
 	 * This needs to be called as a JSON requst
-	 * @return \SS_HTTPResponse
+	 * @return \HTTPResponse
 	 */
 	protected function getValidationErrorResponse() {
 		$request = $this->getRequest();
@@ -21,7 +25,7 @@ class BootstrapAjaxForm extends BootstrapForm {
 						"You've got errors in your submission. Please correct these."),
 					'html' => $this->forTemplate()->RAW()
 				);
-				$response = new SS_HTTPResponse(json_encode($ajaxData));
+				$response = new HTTPResponse(json_encode($ajaxData));
 				$response->addHeader("Content-type", "application/json");
 				return $response;
 			} else {
@@ -30,6 +34,6 @@ class BootstrapAjaxForm extends BootstrapForm {
 		} else {
 			return parent::getValidationErrorResponse();
 		}
-	}		
-	
+	}
+
 }

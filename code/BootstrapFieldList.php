@@ -1,6 +1,14 @@
 <?php
+namespace BootstrapForms;
 
-
+use SilverStripe\Core\ClassInfo;
+use SilverStripe\Core\Extension;
+use SilverStripe\Core\Injector\Injector;
+use SilverStripe\Forms\CompositeField;
+use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\Tab;
+use SilverStripe\Forms\TabSet;
+use SilverStripe\View\SSViewer;
 
 class BootstrapFieldList extends Extension {
 
@@ -14,7 +22,7 @@ class BootstrapFieldList extends Extension {
 	 * Transforms all fields in the FieldList to use Bootstrap templates
 	 * @return FieldList
 	 */
-	public function bootstrapify() {		
+	public function bootstrapify() {
 		foreach($this->owner as $f) {
 
 			$sng = Injector::inst()->get($f->class, true, ['dummy', '']);
@@ -39,11 +47,11 @@ class BootstrapFieldList extends Extension {
 
 			// If the user has customised the holder template already, don't apply the default one.
 			if($sng->getFieldHolderTemplate() == $f->getFieldHolderTemplate()) {
-				$template = "Bootstrap{$f->class}_holder";			
-				if(SSViewer::hasTemplate($template)) {					
-					$f->setFieldHolderTemplate($template);				
+				$template = "Bootstrap{$f->class}_holder";
+				if(SSViewer::hasTemplate($template)) {
+					$f->setFieldHolderTemplate($template);
 				}
-				else {				
+				else {
 					$f->setFieldHolderTemplate("BootstrapFieldHolder");
 				}
 
@@ -51,7 +59,7 @@ class BootstrapFieldList extends Extension {
 
 			// If the user has customised the field template already, don't apply the default one.
 			if($sng->getTemplate() == $f->getTemplate()) {
-				foreach(array_reverse(ClassInfo::ancestry($f)) as $className) {						
+				foreach(array_reverse(ClassInfo::ancestry($f)) as $className) {
 					$bootstrapCandidate = "Bootstrap{$className}";
 					$nativeCandidate = $className;
 					if(SSViewer::hasTemplate($bootstrapCandidate)) {
@@ -68,12 +76,12 @@ class BootstrapFieldList extends Extension {
 			}
 		}
 
-		return $this->owner;		
+		return $this->owner;
 	}
 
 	/**
 	 * Adds this field as ignored. Should not take on boostrap transformation
-	 * 
+	 *
 	 * @param  string $field The name of the form field
 	 * @return FieldList
 	 */

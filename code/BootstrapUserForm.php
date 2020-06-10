@@ -1,11 +1,9 @@
 <?php
+namespace BootstrapForms;
 
-
+use SilverStripe\Core\Extension;
 
 class BootstrapUserForm extends Extension {
-
-
-
 	public function updateForm($form) {
 		$form->Fields()->bootstrapify();
 		$form->Actions()->bootstrapify();

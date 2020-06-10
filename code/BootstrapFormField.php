@@ -7,6 +7,13 @@
  * @author Uncle Cheese <unclecheese@leftandmain.com>
  * @package bootstrap_forms
  */
+namespace BootstrapForms;
+
+use SilverStripe\Core\Config\Config;
+use SilverStripe\Core\Convert;
+use SilverStripe\Forms\FormField;
+use SilverStripe\ORM\DataExtension;
+
 class BootstrapFormField extends DataExtension {
 
 

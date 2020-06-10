@@ -1,4 +1,9 @@
 <?php
+namespace BootstrapForms;
+
+use SilverStripe\Forms\ListboxField;
+use SilverStripe\View\Requirements;
+use SilverStripe\View\SSViewer;
 
 class ChosenListboxField extends ListboxField {
 	/**
@@ -16,13 +21,13 @@ class ChosenListboxField extends ListboxField {
 	 * @return ChosenListboxField
 	 */
 	public function setSearchThreshold($num) {
-		return $this->setAttribute('data-search-threshold', $num);		
+		return $this->setAttribute('data-search-threshold', $num);
 	}
-    
-    
+
+
     /**
      * Sets the Placeholder if the Field is empty
-     * 
+     *
      * @param string $str
      * @return ChosenListboxField
      */
@@ -47,5 +52,5 @@ class ChosenListboxField extends ListboxField {
 		}
 		return parent::FieldHolder($attributes);
 	}
-    
+
 }

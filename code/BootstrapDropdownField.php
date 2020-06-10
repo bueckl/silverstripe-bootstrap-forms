@@ -5,6 +5,14 @@
  * dropdown fields nice.
  *
  */
+namespace BootstrapForms;
+
+use SilverStripe\Core\Config\Config;
+use SilverStripe\Forms\DropdownField;
+use SilverStripe\i18n\i18n;
+use SilverStripe\View\Requirements;
+use SilverStripe\View\SSViewer;
+
 class BootstrapDropdownField extends DropdownField {
 
 

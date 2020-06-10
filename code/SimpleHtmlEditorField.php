@@ -7,8 +7,13 @@
  * @author Uncle Cheese <unclecheese@leftandmain.com>
  * @package bootstrap_forms
  */
+namespace BootstrapForms;
+
+use SilverStripe\Forms\TextareaField;
+use SilverStripe\View\Requirements;
+
 class SimpleHtmlEditorField extends TextareaField {
-	
+
 
 	/**
 	 * @var string The default buttons to show on the editor
@@ -31,9 +36,9 @@ class SimpleHtmlEditorField extends TextareaField {
 	 * @return SimpleHtmlEditorField
 	 */
 	public function setButtons($buttons) {
-		return $this->setAttribute('data-buttons', $buttons);		
+		return $this->setAttribute('data-buttons', $buttons);
 	}
-	
+
 
 
 	/**
@@ -43,7 +48,7 @@ class SimpleHtmlEditorField extends TextareaField {
 	 * @return SimpleHtmlEditorField
 	 */
 	public function setBlockFormats($formats) {
-		return $this->setAttribute('data-blockformats', $formats);		
+		return $this->setAttribute('data-blockformats', $formats);
 	}
 
 
@@ -55,7 +60,7 @@ class SimpleHtmlEditorField extends TextareaField {
 	 * @return SimpleHtmlEditorField
 	 */
 	public function setCSS($css) {
-		return $this->setAttribute('data-css', $css);		
+		return $this->setAttribute('data-css', $css);
 	}
 
 
@@ -68,7 +73,7 @@ class SimpleHtmlEditorField extends TextareaField {
 	 */
 	public function FieldHolder($attributes = array ()) {
 		Requirements::javascript(BOOTSTRAP_FORMS_DIR."/javascript/tinymce/jscripts/tiny_mce/jquery.tinymce.js");
-    	Requirements::javascript(BOOTSTRAP_FORMS_DIR."/javascript/tinymce/jscripts/tiny_mce/tiny_mce.js");		
+    	Requirements::javascript(BOOTSTRAP_FORMS_DIR."/javascript/tinymce/jscripts/tiny_mce/tiny_mce.js");
     	if(!$this->getAttribute('data-buttons')) {
     		$this->setButtons(self::$default_buttons);
     	}

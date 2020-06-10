@@ -1,4 +1,8 @@
 <?php
+namespace BootstrapForms;
+
+use SilverStripe\Control\Controller;
+use SilverStripe\Security\MemberAuthenticator\MemberLoginForm;
 
 class BootstrapMemberLoginForm extends MemberLoginForm {
 

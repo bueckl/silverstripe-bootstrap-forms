@@ -10,6 +10,12 @@
  * @author Uncle Cheese <unclecheese@leftandmain.com>
  * @package boostrap_forms
  */
+namespace BootstrapForms;
+
+use SilverStripe\Core\Config\Config;
+use SilverStripe\Forms\Form;
+use SilverStripe\View\Requirements;
+
 class BootstrapForm extends Form {
 
 
@@ -182,13 +188,13 @@ class BootstrapForm extends Form {
 	 * @return string
 	 */
 	public function forTemplate() {
-        if($this->stat('bootstrap_included')!=false) {
+        if($this->config()->get('bootstrap_included')!=false) {
             Requirements::css(BOOTSTRAP_FORMS_DIR.'/css/bootstrap.css');
 		}
-		if($this->stat('jquery_included')!=false) {
+		if($this->config()->get('jquery_included')!=false) {
 			Requirements::javascript(THIRDPARTY_DIR."/jquery/jquery.js");
 		}
-		if(!$this->stat('bootstrap_form_included')!=false) {
+		if(!$this->config()->get('bootstrap_form_included')!=false) {
 			Requirements::javascript(BOOTSTRAP_FORMS_DIR."/javascript/bootstrap_forms.js");
 		}
 		$this->addExtraClass("form-{$this->formLayout}");

@@ -12,9 +12,9 @@
     ],
     "require":
     {
-        "silverstripe/framework": "3.*",
-	    "silverstripe/cms": "3.*"
+        "silverstripe/framework": "~4.0",
+	    "silverstripe/cms": "~4.0"
     },
     "replace": {"silverstripe/bootstrap-forms": "*"}
-    
+
 }

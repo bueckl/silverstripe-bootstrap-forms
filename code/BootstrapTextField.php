@@ -7,6 +7,8 @@
  * @author Uncle Cheese <unclecheese@leftandmain.com>
  * @package bootstrap_forms
  */
+namespace BootstrapForms;
+
 class BootstrapTextField extends BootstrapFormField {
 
 

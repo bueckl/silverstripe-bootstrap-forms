@@ -7,9 +7,16 @@
  * @author Uncle Cheese <unclecheese@leftandmain.com>
  * @package bootstrap_forms
  */
+namespace BootstrapForms;
+
+use SilverStripe\Core\Config\Config;
+use SilverStripe\Forms\DropdownField;
+use SilverStripe\View\Requirements;
+use SilverStripe\View\SSViewer;
+
 class ChosenDropdownField extends DropdownField {
 
-	
+
 
 	/**
 	 * @var int The number of items that need to appear in the dropdown
@@ -26,7 +33,7 @@ class ChosenDropdownField extends DropdownField {
 	 * @return ChosenDropdownField
 	 */
 	public function setSearchThreshold($num) {
-		return $this->setAttribute('data-search-threshold', $num);		
+		return $this->setAttribute('data-search-threshold', $num);
 	}
 
 
@@ -47,7 +54,7 @@ class ChosenDropdownField extends DropdownField {
 			Requirements::javascript(BOOTSTRAP_FORMS_DIR."/javascript/chosen/chosen.jquery.js");
 			Requirements::css(BOOTSTRAP_FORMS_DIR."/javascript/chosen/chosen.css");
 		}
-		
+
 		$this->addExtraClass('chosen');
 		if(!$this->getAttribute('data-search-threshold')) {
 			$this->setSearchThreshold(self::$default_search_threshold);

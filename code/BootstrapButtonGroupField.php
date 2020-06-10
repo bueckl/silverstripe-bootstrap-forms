@@ -1,5 +1,10 @@
 <?php
+namespace BootstrapForms;
 
+use SilverStripe\Forms\FormField;
+use SilverStripe\ORM\ArrayList;
+use SilverStripe\View\ArrayData;
+use SilverStripe\View\Requirements;
 
 class BootstrapButtonGroupField extends FormField
 {
@@ -34,8 +39,8 @@ class BootstrapButtonGroupField extends FormField
 				'Selected' => $this->Value() == $val
 			)));
 		}
-		
-		return $options;		
+
+		return $options;
 	}
 
 
