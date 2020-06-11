@@ -1,7 +1,7 @@
 {
     "name": "unclecheese/bootstrap-forms",
     "description": "Allows you to create forms in SilverStripe that are compatible with Twitter Bootstrap.",
-    "type": "silverstripe-module",
+    "type": "silverstripe-vendormodule",
     "keywords": ["silverstripe", "bootstrap", "forms", "twitter"],
 	"license": "BSD-3-Clause",
     "authors": [
@@ -13,8 +13,7 @@
     "require":
     {
         "silverstripe/framework": "~4.0",
-	    "silverstripe/cms": "~4.0"
-    },
-    "replace": {"silverstripe/bootstrap-forms": "*"}
+        "silverstripe/cms": "~4.0"
+    }
 
 }
