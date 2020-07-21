@@ -41,7 +41,7 @@ class BootstrapAdminGroupField extends FormField
 
     public function Field($attributes = array ())
     {
-        return $this->renderWith('AdminButtonGroupField');
+        return $this->renderWith('BootstrapAdminGroupField');
     }
 
 
